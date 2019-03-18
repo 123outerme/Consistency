@@ -39,7 +39,7 @@
 		}
 		function addToList() {
 			cardList[cardList.length - arrayDisp] = document.getElementById("CardName").value;
-			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + "<input type='submit' value='Remove' onclick='removeItem(" + (cardList.length - 1) + ")'></li>";
+			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (cardList.length - 1) + ")'></li>";
 			if (arrayDisp != 0)
 				arrayDisp = 0;
 		}
