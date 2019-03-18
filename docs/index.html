@@ -28,13 +28,15 @@
 			Http.send();
 			document.getElementById("GoodButton").hidden = true;
 			document.getElementById("BadButton").hidden = true;
-			while(Http.readyState != 4)
-			{
+			Http.onreadystatechange = function() {	
+				if (this.readyState == 4 && this.status == 200)	
+				{	
+					var randomNumbers = this.responseText.split("\n");
+					randomsLeft = 600;
+					document.getElementById("GoodButton").hidden = false;	
+					document.getElementById("BadButton").hidden = false;	
+				}	
 			}
-			randomNumbers = this.responseText.split("\n");
-			randomsLeft = 600;
-			document.getElementById("GoodButton").hidden = false;
-			document.getElementById("BadButton").hidden = false;
 		}
 		function testHand() {
 			var handSize = document.getElementById("HandSize").value;
