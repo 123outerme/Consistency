@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script>
 		var cardList = [""];
+		var tempCardList = [""];
 		var arrayDisp = 1;
 		var goodHands = 0;
 		var badHands = 0;
@@ -19,10 +20,11 @@
 			var handSize = document.getElementById("HandSize").value;
 			if (cardList.length >= handSize)
 			{
-				shuffleArray(cardList);
+				tempCardList = cardList.slice(); //duplicate array
+				shuffleArray(tempCardList);
 				document.getElementById("TestHand").innerHTML = "";
 				for(i = 0; i < handSize; i++)
-					document.getElementById("TestHand").innerHTML += "<li>" + cardList[i] + "</li>";
+					document.getElementById("TestHand").innerHTML += "<li>" + tempCardList[i] + "</li>";
 			}
 			else
 				document.getElementById("TestHand").innerHTML = "<li>Error: Not enough cards in deck.</li>";
