@@ -13,6 +13,8 @@
 	<script>
 		var cardList = [""];
 		var arrayDisp = 1;
+		var goodHands = 0;
+		var badHands = 0;
 		function testHand() {
 			shuffleArray(cardList);
 			for(i = 0; i < document.getElementById("HandSize").value; i++)
@@ -28,27 +30,40 @@
 		}
 		function addToList() {
 			cardList[cardList.length - arrayDisp] = document.getElementById("CardName").value;
+			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1 + arrayDisp] + "<input type='submit' value='Remove' onclick='removeItem(" + cardList.length - 1 + arrayDisp + ")'></li>";
 			if (arrayDisp != 0)
 				arrayDisp = 0;
-			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + "<input type='submit' value='Remove' onclick='removeItem(" + cardList.length - 1 + ")'></li>";
 		}
 		function removeItem(item) {
 			cardList.splice(item, 1);
 		}
+		function handRating(rating) {
+			if (handRating > 0)
+			{
+				goodHands += rating;
+				document.getElementById("GoodHandNum").innerHTML = goodHands;
+			}
+			else
+			{
+				badHands -= rating;
+				document.getElementById("BadHandNum").innerHTML = badHands;
+			}
+		}
 	</script>
   </head>
   <body>
-	<h1 width="10%">Index</h1>
+	<h1 width="10%">Consistency</h1>
 	  <form class="center" onsubmit="return false;">
 <input type="text" id="CardName" placeholder="Card name"><br>
 <input type="number" id="HandSize" min="4" max="6">
 <input type="submit" value="Add Card" size="4" onclick="addToList();">
-<input type="submit" value="Test Hand" size="4" onclick=";">
+<input type="submit" value="Test Hand" size="4" onclick="testHand();">
 </form>
   <br />
 	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
-	  <p><input type="submit" value="Good" size="4" onclick="addToList();"> | <input type="submit" value="Brick" size="4" onclick=";"></p>
+	  <p><input type="submit" value="Good" size="4" onclick="handRating(1);"> | <input type="submit" value="Brick" size="4" onclick="handRating(-1);"><br />
+		  <span id="GoodHandNum"></span> | <span id="BadHandNum"></span></p>
 	  <h2>Decklist</h2>
 	  <ol id="DeckList"></ol>
   </body>
