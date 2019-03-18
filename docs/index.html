@@ -23,12 +23,9 @@
 				document.getElementById("TestHand").innerHTML = "";
 				for(i = 0; i < handSize; i++)
 					document.getElementById("TestHand").innerHTML += "<li>" + cardList[i] + "</li>";
-				}
 			}
 			else
-			{
 				document.getElementById("TestHand").innerHTML = "<li>Error: Not enough cards in deck.</li>";
-			}
 		}
 		function shuffleArray(array) {
   	 		for (var i = array.length - 1; i > 0; i--) {
