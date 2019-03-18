@@ -64,7 +64,7 @@
 				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
 		}
 		function reloadItems() {
-			for(i = 0; i < handSize; i++)
+			for(i = 0; i < document.getElementById("HandSize").value; i++)
 				document.getElementById("TestHand").innerHTML += "<li>" + cardList[randomNumbers[randomsLeft - i - 1]] + "</li>";
 		}
 		function handRating(rating) {
