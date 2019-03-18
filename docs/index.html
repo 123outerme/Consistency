@@ -24,6 +24,7 @@
 			Http.send();
 			document.getElementById("GoodButton").hidden = true;
 			document.getElementById("BadButton").hidden = true;
+			document.getElementById("TestHand").hidden = true;
 			Http.onreadystatechange = function() {	
 				if (this.readyState == 4)
 				{
@@ -33,7 +34,9 @@
 						randomsLeft = 600;
 					}
 					document.getElementById("GoodButton").hidden = false;	
-					document.getElementById("BadButton").hidden = false;	
+					document.getElementById("BadButton").hidden = false;
+					document.getElementById("TestHand").hidden = false;
+					reloadItems();
 				}	
 			}
 		}
@@ -44,10 +47,6 @@
 				if (randomsLeft < handSize)
 					getMoreRandoms();
 				document.getElementById("TestHand").innerHTML = "";
-				while(document.getElementById("GoodButton").hidden)
-				{
-					;  //wait
-				}
 					for(i = 0; i < handSize; i++)
 						document.getElementById("TestHand").innerHTML += "<li>" + cardList[randomNumbers[randomsLeft - i - 1]] + "</li>";
 				randomsLeft -= handSize;
@@ -64,6 +63,9 @@
 		function removeItem(item) {
 			cardList.splice(item, 1);
 			document.getElementById("DeckList").innerHTML = "";
+			reloadItems();
+		}
+		function reloadItems() {
 			for(i = 0; i < cardList.length; i++)
 				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
 		}
