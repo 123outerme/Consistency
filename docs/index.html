@@ -68,16 +68,18 @@
 	<h1 width="10%">Consistency</h1>
 	  <form class="center" onsubmit="return false;">
 <input type="text" id="CardName" placeholder="Card name"><br>
-<input type="number" id="HandSize" min="4" max="6">
+<p>Hand Size: <input type="number" id="HandSize" min="4" max="6" placeholder="5"></p>
 <input type="submit" value="Add Card" size="4" onclick="addToList();">
 <input type="submit" value="Start Testing" size="4" onclick="testHand();">
 </form>
-  <br />
+	<br />
+	<span class="center">
 	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
 	  <p><input type="submit" value="Good" size="4" onclick="handRating(1);"> | <input type="submit" value="Brick" size="4" onclick="handRating(-1);"><br />
 		  [Good: <span id="GoodHandNum"></span>] | [Bad: <span id="BadHandNum"></span>]</p>
 	  <h2>Decklist</h2>
 	  <ol id="DeckList"></ol>
+	</span>
   </body>
 </html>
