@@ -44,12 +44,12 @@
 			var handSize = document.getElementById("HandSize").value;
 			if (cardList.length >= handSize)
 			{
+				randomsLeft -= handSize;
 				if (randomsLeft < handSize)
 					getMoreRandoms();
 				document.getElementById("TestHand").innerHTML = "";
 					for(i = 0; i < handSize; i++)
 						document.getElementById("TestHand").innerHTML += "<li>" + cardList[randomNumbers[randomsLeft - i - 1]] + "</li>";
-				randomsLeft -= handSize;
 			}
 			else
 				document.getElementById("TestHand").innerHTML = "<li>Error: Not enough cards in deck.</li>";
@@ -63,11 +63,12 @@
 		function removeItem(item) {
 			cardList.splice(item, 1);
 			document.getElementById("DeckList").innerHTML = "";
-			reloadItems();
-		}
-		function reloadItems() {
 			for(i = 0; i < cardList.length; i++)
 				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
+		}
+		function reloadItems() {
+			for(i = 0; i < handSize; i++)
+				document.getElementById("TestHand").innerHTML += "<li>" + cardList[randomNumbers[randomsLeft - i - 1]] + "</li>";
 		}
 		function handRating(rating) {
 			if (rating > 0)
