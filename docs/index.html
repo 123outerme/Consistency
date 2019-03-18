@@ -23,6 +23,8 @@
 				const Http = new XMLHttpRequest();
 				Http.open("GET", url);
 				Http.send();
+				document.getElementById("GoodButton").display = "none";
+				document.getElementById("BadButton").display = "none";
 				Http.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200)
 					{
@@ -30,6 +32,8 @@
 						document.getElementById("TestHand").innerHTML = "";
 						for(i = 0; i < handSize; i++)
 							document.getElementById("TestHand").innerHTML += "<li>" + cardList[shuffledArray[i]] + "</li>";
+						document.getElementById("GoodButton").display = "block";
+						document.getElementById("BadButton").display = "block";
 					}
 				}
 			}
@@ -94,7 +98,7 @@
 	<br />
 	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
-	  <p><input type="submit" value="Good" size="4" onclick="handRating(1);"> | <input type="submit" value="Brick" size="4" onclick="handRating(-1);"><br />
+	  <p><span id="GoodButton"><input type="submit" value="Good" size="4" onclick="handRating(1);"></span> | <span id="BadButton><input type="submit" value="Brick" size="4" onclick="handRating(-1);"></span><br />
 		  [Good: <span id="GoodHandNum">0</span>] | [Bad: <span id="BadHandNum">0</span>]</p>
 		  <p>{Total: <span id="TotalTestNum">0</span>} | {Brick Ratio: <span id="BrickRatio">0</span>%}</p>
 	  <h2>Decklist</h2>
