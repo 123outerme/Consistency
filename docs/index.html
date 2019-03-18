@@ -19,7 +19,7 @@
 			var handSize = document.getElementById("HandSize").value;
 			if (cardList.length >= handSize)
 			{
-				const url = "https://www.random.org/sequences/?min=0&max=" + (cardList.length - 1) + "&col=1&format=plain&rnd=new";  //call array shuffler on random.org
+				const url = "https://www.random.org/integers/?num=" + handSize + "&min=0&max=" + (cardList.length - 1) + "&col=1&base=10&format=plain&rnd=new";  //call for `handSize` random numbers on random.org
 				const Http = new XMLHttpRequest();
 				Http.open("GET", url);
 				Http.send();
