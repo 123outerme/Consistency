@@ -30,12 +30,20 @@
 				document.getElementById("TestHand").innerHTML = "<li>Error: Not enough cards in deck.</li>";
 		}
 		function shuffleArray(array) {
-  	 		for (var i = array.length - 1; i > 0; i--) {
-				var j = Math.floor(Math.random() * (i + 1));
-				var temp = array[i];
-    	   	 	array[i] = array[j];
-    	   	 	array[j] = temp;
-   	 		}
+			const url = "https://www.random.org/sequences/?min=1&max=" + array.length + "&col=1&format=plain&rnd=new";
+			const Http = new XMLHttpRequest();
+			Http.open("GET", url);
+			Http.send();
+			Http.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200)
+					console.log(Http.responseText);
+				for (var i = array.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+				}
+			}
 		}
 		function addToList() {
 			cardList[cardList.length - arrayDisp] = document.getElementById("CardName").value;
