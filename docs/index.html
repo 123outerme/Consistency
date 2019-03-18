@@ -17,9 +17,6 @@
 		var arrayDisp = 1;
 		var goodHands = 0;
 		var badHands = 0;
-		window.onload = function() {
-			getMoreRandoms();
-		}
 		function getMoreRandoms() {
 			const url = "https://www.random.org/integers/?num=600&min=0&max=" + (cardList.length - 1) + "&col=1&base=10&format=plain&rnd=new";  //call for `handSize` random numbers on random.org
 			const Http = new XMLHttpRequest();
