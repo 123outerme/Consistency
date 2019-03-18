@@ -13,6 +13,11 @@
 	<script>
 		var cardList = [""];
 		var arrayDisp = 1;
+		function testHand() {
+			shuffleArray(cardList);
+			for(i = 0; i < document.getElementById("HandSize").value; i++)
+				document.getElementById("TestHand").innerHTML += "<li>" + cardList[i] + "</li>";
+		}
 		function shuffleArray(array) {
   	 		for (var i = array.length - 1; i > 0; i--) {
 				var j = Math.floor(Math.random() * (i + 1));
@@ -25,35 +30,26 @@
 			cardList[cardList.length - arrayDisp] = document.getElementById("CardName").value;
 			if (arrayDisp != 0)
 				arrayDisp = 0;
-			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + "</li>";
+			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + "<input type='submit' value='Remove' onclick='removeItem(" + cardList.length - 1 + ")'></li>";
+		}
+		function removeItem(item) {
+			cardList.splice(item, 1);
 		}
 	</script>
   </head>
   <body>
-  <div class="navbar">
-		<a href="index.html">Home</a>
-		<a href="screenshots.html">Screenshots</a>
-		<a href="mappacks.html">Map-Packs</a>
-		<div class="dropdown"><a class="dropparent">Create <i class="fa fa-caret-down"></i></a>
-		<div class="dropdown-content">
-			<a>Create <i class="fa fa-caret-down"></i></a>
-			<a href="creation.html">Getting Started</a>
-			<a href="map-coords.html">Map Coord Tool</a>
-			<a href="scripts.html">Scripts</a>
-		</div></div>
-		<a href="faq.html">FAQ</a>
-		<a href="https://github.com/123outerme/Gateway-to-Legend">Github</a>
-		<a href="https://github.com/123outerme/Gateway-to-Legend/releases">Download</a>
-		<a href="contact.html">Contact</a>
-	</div>
 	<h1 width="10%">Index</h1>
-  <p class="center">Under construction</p>
-	  <form onsubmit="return false;">
+	  <form class="center" onsubmit="return false;">
 <input type="text" id="CardName" placeholder="Card name"><br>
+<input type="number" id="HandSize" min="4" max="6">
 <input type="submit" value="Add Card" size="4" onclick="addToList();">
 <input type="submit" value="Test Hand" size="4" onclick=";">
 </form>
   <br />
+	  <h2>Test Hand</h2>
+	  <ol id="TestHand"></ol>
+	  <p><input type="submit" value="Good" size="4" onclick="addToList();"> | <input type="submit" value="Brick" size="4" onclick=";"></p>
+	  <h2>Decklist</h2>
 	  <ol id="DeckList"></ol>
   </body>
 </html>
