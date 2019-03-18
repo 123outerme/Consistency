@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script>
 		var cardList;
-		int listSize = 0;
 		function shuffleArray(array) {
   	 		for (var i = array.length - 1; i > 0; i--) {
 				var j = Math.floor(Math.random() * (i + 1));
@@ -24,7 +23,7 @@
    	 		}
 		}
 		function addToList() {
-			cardList[listSize++] = document.getElementById("CardName").value;
+			cardList[cardList.length] = document.getElementById("CardName").value;
 		}
 	</script>
   </head>
