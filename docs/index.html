@@ -61,7 +61,7 @@
 				document.getElementById("BadHandNum").innerHTML = badHands;
 			}
 			document.getElementById("TotalTestNum").innerHTML = goodHands + badHands;
-			document.getElementById("BrickRatio").innerHTML = (badHands / goodHands) * 100.0;
+			document.getElementById("BrickRatio").innerHTML = (badHands / (goodHands + badHands)) * 100.0;
 			testHand();
 		}
 	</script>
