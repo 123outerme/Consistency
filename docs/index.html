@@ -47,7 +47,7 @@
 			cardList.splice(item, 1);
 			document.getElementById("DeckList").innerHTML = "";
 			for(i = 0; i < cardList.length; i++)
-				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + "<input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
+				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
 		}
 		function handRating(rating) {
 			if (rating > 0)
