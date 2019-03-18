@@ -64,6 +64,14 @@
 			document.getElementById("BrickRatio").innerHTML = brickRatio.toFixed(2);
 			testHand();
 		}
+		function resetStats() {
+			goodHands = 0;
+			badHands = 0;
+			document.getElementById("GoodHandNum").innerHTML = 0;
+			document.getElementById("BadHandNum").innerHTML = 0;
+			document.getElementById("TotalTestNum").innerHTML = 0;
+			document.getElementById("BrickRatio").innerHTML = 0;
+		}
 	</script>
   </head>
   <body>
@@ -78,8 +86,9 @@
 <input type="text" id="CardName" placeholder="Card name"><br>
 <input type="number" id="HandSize" min="4" max="6" placeholder="Hand Size">
 <input type="submit" value="Add Card" size="4" onclick="addToList();">
-<input type="submit" value="Start Testing" size="4" onclick="testHand();">
 </form>
+	  <input type="submit" value="Start Testing" size="4" onclick="testHand();">
+	  <input type="submit" value="Reset" size="4" onclick="resetStats();">
 	<br />
 	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
