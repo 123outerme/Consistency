@@ -2,11 +2,9 @@
 <html>
   <head>
   <meta charset="utf-8"/>
-	<meta name="description" content="Puzzle-RPG indie game">
-    <meta name="keywords" content="free,indie,puzzle,rpg,puzzle-rpg,gateway,gateway-to-legend">
     <meta name="author" content="Stephen Policelli">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gateway to Legend - 404</title>
+    <title>Consistency</title>
     <link rel = "stylesheet"
      type = "text/css"
      href = "gtl-style.css" />
@@ -27,6 +25,7 @@
 			cardList[cardList.length - arrayDisp] = document.getElementById("CardName").value;
 			if (arrayDisp != 0)
 				arrayDisp = 0;
+			document.getElementById("DeckList").innerHTML += "<li>" + cardList[cardList.length - 1] + "</li>";
 		}
 	</script>
   </head>
@@ -50,10 +49,11 @@
 	<h1 width="10%">Index</h1>
   <p class="center">Under construction</p>
 	  <form onsubmit="return false;">
-First name: <input type="text" id="CardName" placeholder="Card name"><br>
-<input type="submit" value="Submit" size="4" onclick="addToList();">
+<input type="text" id="CardName" placeholder="Card name"><br>
+<input type="submit" value="Add Card" size="4" onclick="addToList();">
+<input type="submit" value="Test Hand" size="4" onclick=";">
 </form>
   <br />
-  <a href="index.html" class="center" style="max-width: 250px;">Go back to the main page.</a>
+	  <ol id="DeckList"></ol>
   </body>
 </html>
