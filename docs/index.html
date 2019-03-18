@@ -26,13 +26,10 @@
 			document.getElementById("BadButton").hidden = true;
 			document.getElementById("TestHand").hidden = true;
 			Http.onreadystatechange = function() {	
-				if (this.readyState == 4)
+				if (this.readyState == 4 && this.status == 200)
 				{
-					if (this.status == 200)	
-					{	
-						randomNumbers = this.responseText.split("\n");
-						randomsLeft = 600;
-					}
+					randomNumbers = this.responseText.split("\n");
+					randomsLeft = 600;
 					document.getElementById("GoodButton").hidden = false;	
 					document.getElementById("BadButton").hidden = false;
 					document.getElementById("TestHand").hidden = false;
