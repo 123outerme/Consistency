@@ -84,11 +84,13 @@
 	<h1 width="10%">Consistency</h1>
 	  <form class="center" onsubmit="return false;">
 <input type="text" id="CardName" placeholder="Card name"><br>
-<input type="number" id="HandSize" min="4" max="6" placeholder="Hand Size">
 <input type="submit" value="Add Card" size="4" onclick="addToList();">
 </form>
+	  <span class="center">
+	  <input type="number" id="HandSize" min="4" max="6" placeholder="Hand Size">
 	  <input type="submit" value="Start Testing" size="4" onclick="testHand();">
 	  <input type="submit" value="Reset" size="4" onclick="resetStats();">
+	  </span>
 	<br />
 	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
