@@ -23,8 +23,8 @@
 				const Http = new XMLHttpRequest();
 				Http.open("GET", url);
 				Http.send();
-				document.getElementById("GoodButton").display = "none";
-				document.getElementById("BadButton").display = "none";
+				document.getElementById("GoodButton").hidden = true;
+				document.getElementById("BadButton").hidden = true;
 				Http.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200)
 					{
@@ -32,8 +32,8 @@
 						document.getElementById("TestHand").innerHTML = "";
 						for(i = 0; i < handSize; i++)
 							document.getElementById("TestHand").innerHTML += "<li>" + cardList[shuffledArray[i]] + "</li>";
-						document.getElementById("GoodButton").display = "block";
-						document.getElementById("BadButton").display = "block";
+						document.getElementById("GoodButton").hidden = false;
+						document.getElementById("BadButton").hidden = false;
 					}
 				}
 			}
