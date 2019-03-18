@@ -21,14 +21,13 @@
 			const url = "https://www.random.org/integers/?num=600&min=0&max=" + (cardList.length - 1) + "&col=1&base=10&format=plain&rnd=new";  //call for `handSize` random numbers on random.org
 			const Http = new XMLHttpRequest();
 			Http.open("GET", url);
-			Http.timeout = 8000;
 			Http.send();
 			document.getElementById("GoodButton").hidden = true;
 			document.getElementById("BadButton").hidden = true;
 			Http.onreadystatechange = function() {	
 				if (this.readyState == 4 && this.status == 200)	
 				{	
-					var randomNumbers = this.responseText.split("\n");
+					randomNumbers = this.responseText.split("\n");
 					randomsLeft = 600;
 					document.getElementById("GoodButton").hidden = false;	
 					document.getElementById("BadButton").hidden = false;	
