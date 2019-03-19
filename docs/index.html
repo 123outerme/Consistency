@@ -66,10 +66,7 @@
 				document.getElementById("DeckList").innerHTML += "<li>" + cardList[i] + " :: <input type='submit' value='Remove' onclick='removeItem(" + (i) + ")'></li>";
 		}
 		function seeMore() {
-			var index = moreCards + Number(document.getElementById("HandSize").value);
-			console.log(index);
-			document.getElementById("TestHand").innerHTML += "<li>" + cardList[shuffledList[index]] + "</li>";
-			moreCards++;
+			document.getElementById("TestHand").innerHTML += "<li>" + cardList[shuffledList[*moreCards++) + Number(document.getElementById("HandSize").value)]] + "</li>";
 		}
 		function handRating(rating) {
 			if (rating > 0)
