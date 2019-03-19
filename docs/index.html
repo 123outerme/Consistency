@@ -11,8 +11,8 @@
 	<link rel="icon" type="image/ico" href="favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script>
-		var cardList = [""];
-		var shuffledList = [""];
+		var cardList = [];
+		var shuffledList = [];
 		var arrayDisp = 1;
 		var goodHands = 0;
 		var badHands = 0;
@@ -114,7 +114,7 @@
 	  <input type="submit" value="Reset" size="4" onclick="resetStats();">
 	  </span>
 	<br />
-	  <h2>Test Hand <input type="submit" value="Clear" size="4" onclick="cardList = ['']; updateDecklist();"></h2>
+	  <h2>Test Hand <input type="submit" value="Clear" size="4" onclick="cardList = []; updateDecklist();"></h2>
 	  <ol id="TestHand"></ol>
 	  <p><input id="GoodButton" type="submit" value="Good" size="4" onclick="handRating(1);"> | <input id="BadButton" type="submit" value="Brick" size="4" onclick="handRating(-1);"> | <input id="SeeMore" type="submit" value="One More Card" size="4" onclick="seeMore();"><br />
 		  [Good: <span id="GoodHandNum">0</span>] | [Bad: <span id="BadHandNum">0</span>]</p>
