@@ -114,13 +114,13 @@
 	  <input type="submit" value="Reset" size="4" onclick="resetStats();">
 	  </span>
 	<br />
-	  <h2>Test Hand <input type="submit" value="Clear" size="4" onclick="cardList = []; updateDecklist();"></h2>
+	  <h2>Test Hand</h2>
 	  <ol id="TestHand"></ol>
 	  <p><input id="GoodButton" type="submit" value="Good" size="4" onclick="handRating(1);"> | <input id="BadButton" type="submit" value="Brick" size="4" onclick="handRating(-1);"> | <input id="SeeMore" type="submit" value="One More Card" size="4" onclick="seeMore();"><br />
 		  [Good: <span id="GoodHandNum">0</span>] | [Bad: <span id="BadHandNum">0</span>]</p>
 	  <p>{Total: <span id="TotalTestNum">0</span>} | {Brick Ratio: <span id="BrickRatio">0</span>%}</p>
 	 
-	  <h2>Decklist</h2>
+	  <h2>Decklist <input type="submit" value="Clear" size="4" onclick="cardList = []; updateDecklist();"></h2>
 	  <ol id="DeckList"></ol>
 	</span>
   </body>
